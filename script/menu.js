@@ -6,19 +6,19 @@ let menu = [
     id: 0,
     name: "Paket 1",
     desc: "Nasi Timbel + Ayam (bakar/goreng) + Tahu & Tempe + Sambal + Teh",
-    price: 36000,
+    price: 10000,
   },
   {
     id: 1,
     name: "Paket 2",
     desc: "Nasi Timbel + Ayam (bakar/goreng) + Tahu & Tempe + Sambal + Teh",
-    price: 36000,
+    price: 20000,
   },
   {
     id: 2,
     name: "Paket 3",
     desc: "Nasi Timbel + Ayam (bakar/goreng) + Tahu & Tempe + Sambal + Teh",
-    price: 36000,
+    price: 30000,
   },
 ];
 
@@ -58,15 +58,16 @@ function kartu(name, desc, price, count, id) {
 
 // add count
 menu.map((data) => {
-  const addButton = document.getElementById(`addCount${data.id}`);
-  addButton.addEventListener("click", function (event) {
+  const pesan = document.getElementById(`pesan${data.id}`);
+  pesan.addEventListener("click", function (event) {
     event.preventDefault();
     const jumlah = prompt("masukan jumlah pesanan");
     const total = data.price * jumlah; // Hitung subtotal hanya untuk item saat ini
     let totalPrice = 0;
     localStorage.setItem("total", total);
+    window.location.href = "order.html";
+    localStorage.setItem("nama", data.nama);
+    localStorage.setItem("pesanan", data.desc);
   });
 });
-const pesan = () => {
-  window.location.href = "order.html";
-};
+const pesan = () => {};

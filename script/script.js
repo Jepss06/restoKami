@@ -1,6 +1,7 @@
 const d = document;
 let restoPay = d.getElementById("resto-pay");
 let cash = d.getElementById("cash");
+let info = d.getElementById("info");
 let saldo = d.getElementById("saldo-resto-pay").value; // saldo resto pay
 let totalPembayaran = d.getElementById("total-pembayaran").value; // total pembayaran
 console.log(localStorage.getItem("total"));
@@ -11,6 +12,9 @@ const formatUang = (rupiah) => {
     minimumFractionDigits: 0,
   });
 };
+let desc = localStorage.getItem("pesanan");
+let nama = localStorage.getItem("nama");
+info.innerHTML = `anda telah memesah ${nama}: ${desc}`;
 let data = localStorage.getItem("total");
 let total = (document.getElementById("total").innerHTML = formatUang(
   parseInt(data)
