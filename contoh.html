@@ -1,0 +1,30 @@
+<p id="paragraf"></p>
+<script>
+  data = [{
+      id: 1,
+      nama: "sdasd"
+    },
+    {
+      id: 2,
+      nama: "sdasd"
+    },
+    {
+      id: 3,
+      nama: "sdasd"
+    }
+  ]
+  const paragraf = document.getElementById("paragraf");
+  let tampilkan = ``;
+  data.map((data) => {
+    tampilkan += tampil(data.id)
+    paragraf.innerHTML = tampilkan;
+  });
+
+  function tampil(data) {
+    return `
+					data ke - ${data.id}
+			`;
+  }
+
+
+</script>
