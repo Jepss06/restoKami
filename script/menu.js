@@ -1,6 +1,3 @@
-/**
- * menu page
- */
 let menu = [
   {
     id: 0,
@@ -22,16 +19,13 @@ let menu = [
   },
 ];
 
-// add menu card
 const menuSection = document.querySelector(".menu-section");
-let card = ``;
 
 menu.map((data) => {
-  card += kartu(data.name, data.desc, data.price, data.count, data.id);
-  menuSection.innerHTML = card;
+  menuSection.innerHTML += kartu(data.name, data.desc, data.price, data.id);
 });
 
-function kartu(name, desc, price, count, id) {
+function kartu(name, desc, price, id) {
   return `<!-- card -->
 	<div class="card">
 		<button class="kategori" aria-readonly="true">Paket</button>
@@ -56,18 +50,14 @@ function kartu(name, desc, price, count, id) {
 	</div>`;
 }
 
-// add count
 menu.map((data) => {
   const pesan = document.getElementById(`pesan${data.id}`);
   pesan.addEventListener("click", function (event) {
-    event.preventDefault();
     const jumlah = prompt("masukan jumlah pesanan");
-    const total = data.price * jumlah; // Hitung subtotal hanya untuk item saat ini
-    let totalPrice = 0;
+    const total = data.price * jumlah;
     localStorage.setItem("total", total);
-    window.location.href = "order.html";
-    localStorage.setItem("nama", data.nama);
+    localStorage.setItem("nama", data.name);
     localStorage.setItem("pesanan", data.desc);
+    window.location.href = "order.-html";
   });
 });
-const pesan = () => {};
